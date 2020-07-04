@@ -152,7 +152,7 @@ ulang:
                                 
                                 istri2:
 
-                                echo color("white", "\n▬▬▬▬▬▬▬▬▬▬▬▬BENTAR YA OM▬▬▬▬▬▬▬▬▬▬▬▬");
+                                echo color("white", "\n▬▬▬▬▬▬▬▬▬▬▬▬BENTAR YA OM▬▬▬▬▬▬▬▬▬▬▬▬\n");
 
                                 for ($a = 1;$a < 10;$a++)
                                     {
@@ -172,15 +172,17 @@ ulang:
                                         echo "\n" . color("white", " Message: " . $message);
                                         istri3:
 
-                                        echo color("white", "\n▬▬▬▬▬▬▬▬▬▬▬▬SABAR YA OM▬▬▬▬▬▬▬▬▬▬▬▬");
+                                        echo color("white", "\n▬▬▬▬▬▬▬▬▬▬▬▬SABAR YA OM▬▬▬▬▬▬▬▬▬▬▬▬\n");
                                         for ($a = 1;$a < 10;$a++)
                                         {
                                             echo color("white", ".");
                                             sleep(1);
                                         }
-                                        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"referral_code":"G-ZDJYTYX"}');
+                                        $data = '{"referral_code":"G-ZDJYTYX"}';    
+                                        $claim = request("/customer_referrals/v1/campaign/enrolment", $token, $data);
+                                        //$code1 = request('/customer_referrals/v1/campaign/enrollments', $token, '{"referral_code":"G-ZDJYTYX"}');
                                         $message = fetch_value($code1, '"message":"', '"');
-                                        if (strpos($code1, 'Promo kamu sudah bisa dipakai.'))
+                                        if (strpos($claim, 'Promo kamu sudah bisa dipakai.'))
                                         {
                                             echo "\n" . color("green", "Message: " . $message);
                                             goto cekvoc;
@@ -192,6 +194,20 @@ ulang:
                                             
                                             //voucher ############################################################
                                             cekvoc:
+
+                                            echo color("green","    __         __                          \n");
+                                            echo color("green","   / /______ _/ /_  ____ ___  ______ _____  \n");
+                                            echo color("green","  / //_/ __ `/ __ \/ __ `/ / / / __ `/ __ \ \n");
+                                            echo color("green"," / ,< / /_/ / /_/ / /_/ / /_/ / /_/ / / / / \n");
+                                            echo color("green","/_/|_|\__,_/_.___/\__,_/\__, /\__,_/_/ /_/  \n");
+                                            echo color("green","                       /____/      \n");
+                                            echo "\n";
+                                            
+                                            echo "\e[93m      ╔══════════════════════════════════╗\n";
+                                                          echo "\e[91m      ║            Terimakasih           ║\n";
+                                                          echo "\e[91m      ║             THANKS TO            ║\n";
+                                                          echo "\e[91m      ║          Kabayan Managemen       ║\n";
+                                                          echo "\e[93m      ╚══════════════════════════════════╝\n";
                                             sleep(1);
 
                                             $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=13&page=1', $token);
