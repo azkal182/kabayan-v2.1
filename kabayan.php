@@ -71,7 +71,7 @@ ulang:
                 save("token.txt", $token);
                 echo color("white", "\n▬▬▬▬▬▬▬▬▬▬▬▬CLAIM VOUCHER▬▬▬▬▬▬▬▬▬▬▬▬");
                 echo "\n" . color("white", "CLAIM A..");
-                echo "\n" . color("white", " Please wait 50 seccond");
+                echo "\n" . color("white", " Please wait 50 seccond ");
                 for ($a = 1;$a < 50;$a++)
                 {
                     echo color("white", ".");
@@ -89,7 +89,7 @@ ulang:
                     echo "\n" . color("white", " Message: " . $message);
                     gocar:
                         echo "\n" . color("white", "CLAIM B.. ");
-                        echo "\n" . color("white", " Please wait");
+                        echo "\n" . color("white", " Please wait ");
                         for ($a = 1;$a <= 5;$a++)
                         {
                             echo color("white", ".");
@@ -119,12 +119,12 @@ ulang:
 
 
                                 setpin:
-                                echo "\n" . color("white", " WAJIB SETPIN..!!!: y/n ");
+                                echo "\n" . color("red", " WAJIB SETPIN..!!!: y/n ");
                                 $pilih1 = trim(fgets(STDIN));
                                 if ($pilih1 == "y" || $pilih1 == "Y")
                                 {
                                     //if($pilih1 == "y" && strpos($no, "628")){
-                                    echo color("white", "▬▬▬▬▬▬▬▬▬▬▬▬▬▬ PIN MU = 112233 ▬▬▬▬▬▬▬▬▬▬▬▬") . "\n";
+                                    echo color("white", " \n▬▬▬▬▬▬▬▬▬▬▬▬▬▬ PIN MU = 112233 ▬▬▬▬▬▬▬▬▬▬▬▬") . "\n";
                                     $data2 = '{"pin":"112233"}';
                                     $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
                                     echo "Otp pin: ";
@@ -139,7 +139,7 @@ ulang:
                                 }
                                 else
                                 {
-                                    echo color("white", "-] GAGAL!!!\n");
+                                    echo color("red", "\n-] GAGAL!!!\n");
                                 }
                         
 
@@ -194,6 +194,7 @@ ulang:
                                             
                                             //voucher ############################################################
                                             cekvoc:
+                                            system("clear");
 
                                             echo color("green","    __         __                          \n");
                                             echo color("green","   / /______ _/ /_  ____ ___  ______ _____  \n");
@@ -208,6 +209,8 @@ ulang:
                                                           echo "\e[91m      ║             THANKS TO            ║\n";
                                                           echo "\e[91m      ║          Kabayan Managemen       ║\n";
                                                           echo "\e[93m      ╚══════════════════════════════════╝\n";
+                                                          echo color("green","           Time  : ".date('[d-m-Y] [H:i:s]')."   \n");
+                                                          echo color("green","                  Format Kode 62*** \n");
                                             sleep(1);
 
                                             $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=13&page=1', $token);
